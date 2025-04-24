@@ -130,14 +130,16 @@ class Match3Env(gym.Env):
 
     def __swap(self, point1, point2):
         possible_moves = self.__game._Game__get_possible_moves()
-        #actions = self.__get_available_actions()
         try:
-            score =  self.__game.swap(self.__game.board, point1, point2)
+            score = self.__game.swap(self.__game.board, point1, point2)
             reward = [score[0], score[1], possible_moves]
-            #print("reward swap: ", reward_shape)
+            # tiles_matched = score[0] if isinstance(score[0], (int, float)) else 0
+            # if tiles_matched > 0:
+                # reward = [tiles_matched, tiles_matched, possible_moves]
+            # else:
+                # reward = [0, -1, possible_moves]
         except ImmovableShapeError:
-            reward = [0, 99, possible_moves]
-
+            reward = [0, -100, possible_moves]
         return reward
     
     def __get_legal_actions(self):
