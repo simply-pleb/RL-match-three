@@ -3,8 +3,8 @@ from gym_match3.envs import Match3Env
 import numpy as np
 
 # Match A3C settings
-input_shape = (9, 9, 4)
-num_actions = 144
+input_shape = (8, 8, 7)
+num_actions = 112
 num_workers = 16
 episodes_per_worker = 100
 number_of_steps = 100  # Rollout length

@@ -165,8 +165,9 @@ def worker(worker_id, global_model, optimizer, lock, reward_queue, num_episodes,
 if __name__ == "__main__":
     start_time = time.time()
     mp.set_start_method("spawn")
-    input_shape = (9, 9, 4)
-    num_actions = 144
+    input_shape = (8, 8, 7)
+    # num_actions = 144  # For (9,9,.)
+    num_actions = 112
     num_workers = 16  # Increase workers for faster training
     episodes_per_worker = 100  # Increase episodes for real training
 
